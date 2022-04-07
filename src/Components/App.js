@@ -16,25 +16,36 @@ const App = () => {
     setOperator(operand);
 
     //since operator is used set the current state as previous so we can take new input
-    // setPreviousSelection(currentSelection);
-
-    // setCurrentSelection("0");
-
-    // console.log(
-    //   `prev- ${previousSelection} current - ${currentSelection}  operation -${operationVal}`
-    // );
-  };
-
-  useEffect(() => {
-    //since operator is used set the current state as previous so we can take new input
     setPreviousSelection(currentSelection);
 
     setCurrentSelection("");
+  };
 
-    console.log(
-      `prev- ${previousSelection} current - ${currentSelection}  operation -${operator}`
-    );
-  }, [operator]);
+  useEffect(() => {}, [operator]);
+
+  const calculate = () => {
+    if (previousSelection === "0") return;
+
+    let calculatedValue = 0;
+
+    switch (operator) {
+      case "+":
+        calculatedValue = +previousSelection + +currentSelection;
+    }
+
+    console.log(calculatedValue);
+  };
+
+  // useEffect(() => {
+  //   //since operator is used set the current state as previous so we can take new input
+  //   setPreviousSelection(currentSelection);
+
+  //   setCurrentSelection("");
+
+  //   console.log(
+  //     `prev- ${previousSelection} current - ${currentSelection}  operation -${operator}`
+  //   );
+  // }, [operator]);
 
   return (
     <div className="container">
@@ -47,7 +58,7 @@ const App = () => {
       </div>
       <div className="row">
         <Operation operator={"Clear"} double="double" onOperation={operation} />
-        <Operation operator={"="} onOperation={operation} />
+        <Operation operator={"="} onOperation={calculate} />
         <Operation operator={"+"} onOperation={operation} />
       </div>
       <div className="row">
