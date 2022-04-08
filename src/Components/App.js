@@ -31,9 +31,29 @@ const App = () => {
     switch (operator) {
       case "+":
         calculatedValue = +previousSelection + +currentSelection;
+        break;
+
+      case "X":
+        calculatedValue = +previousSelection * +currentSelection;
+        break;
+
+      case "-":
+        calculatedValue = +previousSelection - +currentSelection;
+        break;
+
+      case "÷":
+        calculatedValue = +previousSelection / +currentSelection;
+        break;
+
+      case "Clear":
+        setCurrentSelection("");
+        setOperator("");
+        break;
     }
 
-    console.log(calculatedValue);
+    if (operator === "Clear") return;
+
+    setCurrentSelection(calculatedValue);
   };
 
   // useEffect(() => {
