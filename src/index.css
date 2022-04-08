@@ -1,11 +1,15 @@
 .container {
   display: flex;
   margin: 0 auto;
-  height: 100vh;
+  height: 90vh;
   justify-content: center;
   text-align: center;
   align-items: center;
   flex-direction: column;
+}
+
+.heading {
+  color: #c52626;
 }
 
 .input {

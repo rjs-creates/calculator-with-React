@@ -69,6 +69,9 @@ const App = () => {
 
   return (
     <div className="container">
+      <div>
+        <h1 className="heading">Basic Calculator</h1>
+      </div>
       <div className="row">
         <input
           className="input"
